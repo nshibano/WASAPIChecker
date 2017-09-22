@@ -2,11 +2,14 @@
 
 For low latency audio output on Windows, WASAPI is provided by Microsoft. To accomplish lowest audio latency, exclusive mode should be used.
 
-In exclusive mode, only specific buffer length is supported and that value depends on sound chip, driver version and sampling frequeny. Any attempt to initialize WASAPI with unsupported buffer length simply fails.
+In exclusive mode, only specific buffer length is supported and that value depends on sampling frequeny (and possibly other factors). Any attempt to initialize WASAPI with unsupported buffer length simply fails.
 
 This tool iterates WASAPI initialization for sampling frequency and buffer length. And lists all supported combinations.
 
 ## Sample output
+
+Following is sample output of this tool. All of my machines, with various Windows versions and sound chip from different manufactures, produced results which is exactly same with this sample.
+
 ```
 Checking FS=22050
 Checking FS=24000
