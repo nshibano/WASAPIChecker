@@ -10,15 +10,6 @@
 #include <time.h>
 #include <io.h>
 
-void ExitOnError(HRESULT hr)
-{
-	if (FAILED(hr))
-	{
-		fprintf(stderr, "WASAPI initialization error.");
-		exit(-1);
-	};
-}
-
 WAVEFORMATEX CreateWFX(int rate)
 {
 	WAVEFORMATEX wfx;
@@ -70,6 +61,8 @@ int main()
 			pAudioClient->Release();
 		}
 	}
+	
+	CoUninitialize();
 
 	printf("Press enter to exit.");
 	getchar();
